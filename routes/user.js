@@ -1,5 +1,4 @@
 var router = require('express').Router();
-var Product = require('../models/products');
 var csrf = require('csurf');
 var passport = require('passport');
 var Orders = require('../models/orders');

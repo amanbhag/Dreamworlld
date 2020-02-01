@@ -91,7 +91,16 @@ router.post('/add', async (req, res, next) => {
 
 // update Order
 router.post('/updateOrder', async (req, res) => {
-  console.log(req.body);
+  const { _id, status } = req.body;
+  const response = await Orders.update(
+    { _id },
+    {
+      $set: {
+        status
+      }
+    }
+  );
+  // console.log('\n\nUPDATE ORDER STATUS ADMIN', response, '\n\n');
   res.redirect('/admin');
 });
 
@@ -238,7 +247,7 @@ router.post('/checkout', isLoggedIn, (req, res, next) => {
         cart,
         address: req.body.address,
         name: req.body.name,
-        status: 'received',
+        status: 'Received',
         paymentId: charge.id
       }).save((err, result) => {
         if (err) {
