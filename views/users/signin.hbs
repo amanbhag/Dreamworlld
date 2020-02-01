@@ -1,0 +1,32 @@
+<div class="centerContainer">
+    <img class="img-fluid" style="height: 10rem;" src="/images/Logn.svg">
+    <br>
+</div>
+<br>
+<div class="centerContainer">
+    {{#if hasError}}
+    {{#each messages}}
+    <div class="alert alert-danger">{{this}}</div>
+    {{/each}}
+    {{/if}}
+</div>
+<div class="centerContainer FormCSS">
+    <div class="row">
+        <form method="post">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <input placeholder="Enter Email Address" type="text" name="email" id="email">
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <input placeholder="Enter Password" type="password" name="password" id="password">
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <div class="col-sm-12 col-md-12 col-lg-12 centerContainer">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="centerContainer">
+    <p>Don't Have an Account ?? <a href="/users/signup">Sign up Instead!</a></p>
+</div>

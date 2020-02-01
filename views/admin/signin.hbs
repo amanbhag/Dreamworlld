@@ -1,0 +1,33 @@
+<div class="centerContainer">
+    <img class="img-fluid" style="height: 10rem;" src="/images/Logn.svg">
+    <br>
+</div>
+<br>
+<div class="centerContainer">
+    {{#if hasError}}
+    {{#each messages}}
+    <div class="alert alert-danger">{{this}}</div>
+    {{/each}}
+    {{/if}}
+</div>
+<div class="centerContainer FormCSS">
+    <div class="row">
+        <form method="post">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <input placeholder="Enter Admin ID" type="text" name="aid" id="aid">
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <input placeholder="Enter Password" type="password" name="password" id="password">
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <div class="col-sm-12 col-md-12 col-lg-12 centerContainer">
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="centerContainer">
+    {{!-- <a>Don't Have an Account ?? <a href="/admin/signup">Sign up Instead!</a></a> --}}
+    <p>You are not an Admin ?? <a href="/users/signup">Go to Customer Portal</a></p>
+</div>
