@@ -5,6 +5,11 @@ var Orders = require('../models/orders');
 const { APIKEY } = require('../config/stripe');
 const stripe = require('stripe')(APIKEY);
 const nodemailer = require('nodemailer');
+const passport = require('passport');
+const csrf = require('csurf');
+
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
@@ -86,7 +91,7 @@ router.post('/add', async (req, res, next) => {
     desc,
     price
   }).save();
-  return res.redirect('/admin');
+  return res.redirect('/adminDashboard');
 });
 
 // update Order
@@ -101,11 +106,11 @@ router.post('/updateOrder', async (req, res) => {
     }
   );
   // console.log('\n\nUPDATE ORDER STATUS ADMIN', response, '\n\n');
-  res.redirect('/admin');
+  res.redirect('/adminDashboard');
 });
 
 //  Update Route
-router.post('/admin', async (req, res, next) => {
+router.post('/adminDashboard', async (req, res, next) => {
   const {
     _id,
     updatedImagePath,
@@ -124,10 +129,10 @@ router.post('/admin', async (req, res, next) => {
       }
     }
   );
-  return res.redirect('/admin');
+  return res.redirect('/adminDashboard');
 });
 
-router.get('/admin', async (req, res, next) => {
+router.get('/adminDashboard', async (req, res, next) => {
   const allProducts = await Product.find();
   const allOrders = await Orders.find();
   const sizeOfAllOrders = allOrders.length;
@@ -145,7 +150,7 @@ router.get('/admin', async (req, res, next) => {
   }
 
   return res.render('admin', {
-    title: 'Admin-DreamWorld',
+    title: 'Admin Panel',
     allProducts,
     allOrders,
     result,
@@ -156,12 +161,12 @@ router.get('/admin', async (req, res, next) => {
 router.get('/delete/:_id', async (req, res, next) => {
   const { _id } = req.params;
   const response = await Product.findOneAndDelete({ _id });
-  return res.redirect('/admin');
+  return res.redirect('/adminDashboard');
 });
 
 router.get('/deleteAllProduct', async (req, res, next) => {
   const response = await Product.deleteMany();
-  return res.redirect('/admin');
+  return res.redirect('/adminDashboard');
 });
 
 router.get('/add-to-cart/:_id', async (req, res, next) => {
@@ -264,6 +269,28 @@ router.post('/checkout', isLoggedIn, (req, res, next) => {
     }
   );
 });
+
+router.get('/admin', async (req, res) => {
+  var messages = req.flash('error');
+  res.render('admin/signup', {
+    title: 'Seller Panel Signup',
+    csrfToken: req.csrfToken(),
+    hasError: messages.length > 0,
+    messages: messages
+  });
+});
+
+router.post(
+  '/sellersignup',
+  passport.authenticate('local-seller-signup', {
+    failureRedirect: '/admin',
+    failureFlash: true
+  }),
+  (req, res, next) => {
+    console.log(req.body);
+    res.redirect('/adminDashboard');
+  }
+);
 
 module.exports = router;
 

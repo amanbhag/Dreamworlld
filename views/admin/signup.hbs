@@ -12,9 +12,12 @@
 </div>
 <div class="centerContainer FormCSS">
     <div class="row">
-        <form method="post">
+        <form method="post" action="/sellersignup">
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <input placeholder="Enter Admin ID" type="text" name="aid" id="aid">
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <input placeholder="Enter Admin Name" type="text" name="name" id="name">
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -22,7 +25,7 @@
             </div>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="col-sm-12 col-md-12 col-lg-12 centerContainer">
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
             </div>
         </form>
     </div>
