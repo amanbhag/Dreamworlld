@@ -133,6 +133,7 @@ router.get('/adminDashboard', async (req, res, next) => {
   const allOrders = await Orders.find();
   const sizeOfAllOrders = allOrders.length;
   const sizeOfAllProducts = allProducts.length;
+  const seller = true;
   if (sizeOfAllProducts > 0) {
     result = true;
   } else {
