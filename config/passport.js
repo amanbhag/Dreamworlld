@@ -89,7 +89,7 @@ passport.use(
         });
         return done(null, false, req.flash('error', messages));
       }
-      Seller.findOne({ _id: aid }, (err, seller) => {
+      Seller.findOne({ aid: aid }, (err, seller) => {
         if (err) {
           return done(err);
         }
@@ -101,7 +101,7 @@ passport.use(
           return done(null, false, { message: 'Kindly Enter Admin Name' });
         } else {
           newSeller.name = req.body.name;
-          newSeller._ia = aid;
+          newSeller.aid = aid;
           newSeller.password = newSeller.encryptPassword(password);
           newSeller.save((err, result) => {
             if (err) {
@@ -117,15 +117,14 @@ passport.use(
 
 // Fetching Seller (Sign in)
 passport.use(
-  'local-signin',
+  'local-seller-signin',
   new Localstrategy(
     {
-      usernameField: 'email',
+      usernameField: 'aid',
       passwordField: 'password',
       passReqToCallback: true
     },
-    function(req, email, password, done) {
-      req.checkBody('email', 'Invalid Email').notEmpty();
+    function(req, aid, password, done) {
       req.checkBody('password', 'Invalid Password').notEmpty();
       var errors = req.validationErrors();
       if (errors) {
@@ -136,18 +135,18 @@ passport.use(
         return done(null, false, req.flash('error', messages));
       }
 
-      User.findOne({ email: email }, (err, user) => {
+      Seller.findOne({ aid: aid }, (err, seller) => {
         if (err) {
           return done(err);
         }
-        if (!user) {
-          return done(null, false, { message: 'User Not Found !' });
+        if (!seller) {
+          return done(null, false, { message: 'Seller Not Found !' });
         }
-        if (!user.validPassword(password)) {
+        if (!seller.validPassword(password)) {
           return done(null, false, { message: 'Wrong Password !' });
         }
 
-        return done(null, user);
+        return done(null, seller);
       });
     }
   )

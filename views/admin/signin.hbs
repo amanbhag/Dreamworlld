@@ -1,5 +1,5 @@
 <div class="centerContainer">
-    <img class="img-fluid" style="height: 10rem;" src="/images/Sign Up.svg">
+    <img class="img-fluid" style="height: 10rem;" src="/images/Logn.svg">
     <br>
 </div>
 <br>
@@ -12,12 +12,9 @@
 </div>
 <div class="centerContainer FormCSS">
     <div class="row">
-        <form method="post" action="/sellersignup">
+        <form method="post">
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <input placeholder="Enter Admin ID" type="text" name="aid" id="aid">
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <input placeholder="Enter Admin Name" type="text" name="name" id="name">
+                <input placeholder="Enter Seller ID" type="text" name="aid" id="aid">
             </div>
 
             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -25,14 +22,14 @@
             </div>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="col-sm-12 col-md-12 col-lg-12 centerContainer">
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
             </div>
         </form>
     </div>
 </div>
 <div class="container">
     <div class="left">
-        <p>Already Have an Account ?? <a href="/admin"> &nbsp; Sign in Instead!</a></p>
+        <p>Don't Have an Account ?? <a href="/adminSignup">Sign up Instead!</a></p>
     </div>
     <div class="right">
         <p>Not a Seller <a href="/">Go to Customer Portal</a></p>

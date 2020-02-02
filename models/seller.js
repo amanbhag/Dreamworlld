@@ -2,15 +2,22 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 
-const sellerSchema = new schema({
-  _id: {
-    type: mongoose.Schema.Types.String,
-    required: true,
-    maxlength: 3
+const sellerSchema = new schema(
+  {
+    aid: {
+      type: mongoose.Schema.Types.String,
+      required: true,
+      maxlength: 3
+    },
+    name: { type: String, required: true },
+    password: { type: String, required: true, default: 'admin@123' }
   },
-  name: { type: String, required: true },
-  password: { type: String, required: true, default: 'admin@123' }
-});
+  {
+    timestamps: true,
+    versionKey: false,
+    minimize: false
+  }
+);
 
 // Encrypting Passwords
 sellerSchema.methods.encryptPassword = function(password) {

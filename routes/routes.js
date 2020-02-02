@@ -8,9 +8,6 @@ const nodemailer = require('nodemailer');
 const passport = require('passport');
 const csrf = require('csurf');
 
-var csrfProtection = csrf();
-router.use(csrfProtection);
-
 /* GET home page. */
 router.get('/', async (req, res, next) => {
   var successMsg = req.flash('success')[0];
@@ -84,7 +81,6 @@ router.post('/subscribe', (req, res, next) => {
 
 router.post('/add', async (req, res, next) => {
   const { productImageUrl, name, desc, price } = req.body;
-
   const response = await new Product({
     imagePath: productImageUrl,
     name,
@@ -105,7 +101,7 @@ router.post('/updateOrder', async (req, res) => {
       }
     }
   );
-  // console.log('\n\nUPDATE ORDER STATUS ADMIN', response, '\n\n');
+  console.log('\n\nUPDATE ORDER STATUS ADMIN', response, '\n\n');
   res.redirect('/adminDashboard');
 });
 
@@ -150,7 +146,7 @@ router.get('/adminDashboard', async (req, res, next) => {
   }
 
   return res.render('admin', {
-    title: 'Admin Panel',
+    title: 'Seller Panel',
     allProducts,
     allOrders,
     result,
@@ -270,9 +266,13 @@ router.post('/checkout', isLoggedIn, (req, res, next) => {
   );
 });
 
-router.get('/admin', async (req, res) => {
+var csrfProtection = csrf();
+router.use(csrfProtection);
+
+router.get('/adminSignup', async (req, res) => {
   var messages = req.flash('error');
   res.render('admin/signup', {
+    adminSignInAndUp: true,
     title: 'Seller Panel Signup',
     csrfToken: req.csrfToken(),
     hasError: messages.length > 0,
@@ -280,15 +280,84 @@ router.get('/admin', async (req, res) => {
   });
 });
 
+router.get('/admin', async (req, res) => {
+  var messages = req.flash('error');
+  res.render('admin/signin', {
+    adminSignInAndUp: true,
+    title: 'Seller Panel Signin',
+    csrfToken: req.csrfToken(),
+    hasError: messages.length > 0,
+    messages: messages
+  });
+});
+
+router.post(
+  '/admin',
+  passport.authenticate('local-seller-signin', {
+    failureRedirect: '/admin',
+    failureFlash: true
+  }),
+  async (req, res) => {
+    const adminLogin = true;
+    const allProducts = await Product.find();
+    const allOrders = await Orders.find();
+    const sizeOfAllOrders = allOrders.length;
+    const sizeOfAllProducts = allProducts.length;
+    if (sizeOfAllProducts > 0) {
+      result = true;
+    } else {
+      result = false;
+    }
+
+    if (sizeOfAllOrders > 0) {
+      resultOrder = true;
+    } else {
+      resultOrder = false;
+    }
+
+    return res.render('admin', {
+      title: 'Seller Panel',
+      allProducts,
+      allOrders,
+      result,
+      resultOrder,
+      adminLogin
+    });
+  }
+);
+
 router.post(
   '/sellersignup',
   passport.authenticate('local-seller-signup', {
     failureRedirect: '/admin',
     failureFlash: true
   }),
-  (req, res, next) => {
-    console.log(req.body);
-    res.redirect('/adminDashboard');
+  async (req, res) => {
+    const adminLogin = true;
+    const allProducts = await Product.find();
+    const allOrders = await Orders.find();
+    const sizeOfAllOrders = allOrders.length;
+    const sizeOfAllProducts = allProducts.length;
+    if (sizeOfAllProducts > 0) {
+      result = true;
+    } else {
+      result = false;
+    }
+
+    if (sizeOfAllOrders > 0) {
+      resultOrder = true;
+    } else {
+      resultOrder = false;
+    }
+
+    return res.render('admin', {
+      title: 'Seller Panel',
+      allProducts,
+      allOrders,
+      result,
+      resultOrder,
+      adminLogin
+    });
   }
 );
 

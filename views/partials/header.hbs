@@ -1,3 +1,41 @@
+{{#if adminLogin }}
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo"><span class="stroke-text"><span style="font-size: 2rem;">D</span>REAM</span><span
+        style="font-size: 2rem;">W</span>ORLD</a>
+
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a href='/admin'>
+          <i class="fas fa-sign-out-alt"></i>&nbsp; Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{{else if adminSignInAndUp}}
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo"><span class="stroke-text"><span style="font-size: 2rem;">D</span>REAM</span><span
+        style="font-size: 2rem;">W</span>ORLD</a>
+
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a href='/admin'>
+          <i class="fas fa-sign-in-alt"></i>&nbsp; Seller Signin
+        </a>
+      </li>
+      <li>
+        <a href='/adminSignup'>
+          <i class="fas fa-user-plus"></i>&nbsp; Seller Signup
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{{else}}
 {{!-- Navbar --}}
 <nav>
   <div class="nav-wrapper">
@@ -60,3 +98,4 @@
   </li>
   </li>
 </ul>
+{{/if }}
