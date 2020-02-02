@@ -116,7 +116,7 @@ nav .nav-wrapper ul li a span.badge::before {
 
 .owl-carousel .item {
   height: 30rem;
-  padding: 1rem;
+  /* padding: 1rem; */
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
   box-shadow: 4px 4px 8px #cacaca, 
             -4px -4px 8px #ffffff;
@@ -348,12 +348,21 @@ input::placeholder {
   height: 20rem;
   padding: 4rem;
   text-align: center;
+  }
+
+  /* Page footer */
+  .page-footer .input-field .subscribe-btn {
+    width: 100%;
+  }
 }
 
-/* Page footer */
-.page-footer .input-field .subscribe-btn {
-  width: 100%;
+/* Admin Styling */
+header, main, footer {
+  padding-left: 300px;
 }
 
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
 }
-
