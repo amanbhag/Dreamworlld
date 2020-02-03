@@ -7,6 +7,17 @@
   --color: #FF7500;
   --font-color: #FFFFFF; 
   font-family: 'Open Sans', sans-serif;
+  outline: none;
+}
+
+header, main {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
 }
 
 .container {
@@ -16,6 +27,12 @@
 body {
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
   background-repeat: no-repeat;
+}
+
+/* Button */
+.btn {
+  background: var(--color);
+  border-radius: 5px;
 }
 
 /* Navbar Brand CSS Start */
@@ -324,6 +341,40 @@ input::placeholder {
   -webkit-text-stroke-color: var(--color);
 }
 
+/* Admin | Seller */
+
+/* SignUp & SignIn */
+.signUp .col , .signIn .col {
+  padding: 3rem;
+}
+
+.signUp .col .signUp-form , .signIn .col .signIn-form {
+  padding: 0.01rem 0.8rem 1rem 0;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #d6d6d6);
+  box-shadow: 4px 4px 8px #cacaca, 
+            -4px -4px 8px #ffffff;
+}
+
+.signUp .col .signUp-form h3 , .signIn .col .signIn-form h3 {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.signUp .col .signUp-form .btn, .signIn .col .signIn-form .btn {
+  width: 100%; 
+}
+
+.signUp .col .signUp-form .btn:hover, .signIn .col .signIn-form .btn:hover {
+  background: var(--color);
+  opacity: 0.8;
+}
+
+.sidenav-fixed .user-view {
+  background: var(--color);
+}
+
+/* *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_ */
 
 /* Media Query for all Devices */
 
@@ -354,15 +405,11 @@ input::placeholder {
   .page-footer .input-field .subscribe-btn {
     width: 100%;
   }
+
+  /* Admin | Seller */
+ .signUp .col , .signIn .col {
+  padding: 2rem;
+  } 
 }
 
-/* Admin Styling */
-header, main, footer {
-  padding-left: 300px;
-}
 
-@media only screen and (max-width : 992px) {
-  header, main, footer {
-    padding-left: 0;
-  }
-}

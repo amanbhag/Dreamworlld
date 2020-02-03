@@ -1,8 +1,8 @@
-<div class="centerContainer">
-    <img class="img-fluid" style="height: 10rem;" src="/images/Logn.svg">
+{{!-- <div class="centerContainer">
+    <img class="img-fluid" src="/images/Logn.svg">
     <br>
 </div>
-<br>
+<br> --}}
 <div class="centerContainer">
     {{#if hasError}}
     {{#each messages}}
@@ -10,7 +10,40 @@
     {{/each}}
     {{/if}}
 </div>
-<div class="centerContainer FormCSS">
+{{!-- Sign In --}}
+<section class="signIn">
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col l6 m6 hide-on-small-only">
+                <div class="signIn-img">
+                    <img class="responsive-img" src="/images/undraw_mobile_login_ikmv.svg">
+                </div>
+            </div>
+            <div class="col l6 m6 s12">
+                <div class="signIn-form">
+                    <h3 class="center">SIGN IN</h3>
+                    <form method="post">
+                        <div class="input-field col s12 center">
+                            {{!-- ID --}}
+                            <input placeholder="Enter Seller ID" type="text" name="aid" id="aid">
+                            {{!-- Password --}}
+                            <input placeholder="Enter Password" type="password" name="password" id="password">
+                            {{!-- csrfToken --}}
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            {{!-- SignIn Button --}}
+                            <button type="submit" class="btn btn-large center">Sign In</button>
+                        </div>
+                    </form>
+                    <div class="center">
+                        <p>Don't Have an Account ?? <a href="/adminSignup">Sign up Instead!</a></p>
+                        <p>Not a Seller <a href="/">Go to Customer Portal</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section >
+{{!-- <div class="centerContainer FormCSS">
     <div class="row">
         <form method="post">
             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -34,4 +67,4 @@
     <div class="right">
         <p>Not a Seller <a href="/">Go to Customer Portal</a></p>
     </div>
-</div>
+</div> --}}

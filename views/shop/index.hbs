@@ -136,20 +136,20 @@
           <img src={{this.imagePath}} alt="card image" class="responsive-img center">
           <span class="card-title">
             <a href="/add-to-cart/{{this._id}}" class="right"><i class="fas fa-shopping-cart"></i></a><br>
-            <a href="#" class="right"><i class="far fa-heart"></i></a><br>
-            <a href="#" class="right"><i class="far fa-eye"></i></a><br>
+            {{!-- <a href="#" class="right"><i class="far fa-heart"></i></a><br> --}}
+            <a href="product-view.hbs" class="right"><i class="far fa-eye"></i></a><br>
           </span>
         </div>
         <div class="card-content">
           <h6 class="card-title">{{this.name}}</h6>
           <p class="card-desc">{{this.desc}}</p>
-          <p class="card-rating">
+          {{!-- <p class="card-rating">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
-          </p>
+          </p> --}}
           <p class="price">₹ {{this.price}}</p>
         </div>
       </div>
