@@ -25,11 +25,11 @@
                     <form method="post">
                         <div class="input-field col s12 center">
                             {{!-- ID --}}
-                            <input placeholder="Enter Seller ID" type="text" name="aid" id="aid">
+                            <input required placeholder="Enter Seller ID" type="text" name="aid" id="aid">
                             {{!-- Password --}}
-                            <input placeholder="Enter Password" type="password" name="password" id="password">
+                            <input required placeholder="Enter Password" type="password" name="password" id="password">
                             {{!-- csrfToken --}}
-                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            {{!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> --}}
                             {{!-- SignIn Button --}}
                             <button type="submit" class="btn btn-large center">Sign In</button>
                         </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-</section >
+</section>
 {{!-- <div class="centerContainer FormCSS">
     <div class="row">
         <form method="post">

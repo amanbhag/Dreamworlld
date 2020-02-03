@@ -3,30 +3,28 @@
 
 * {
   --primary-color: #141824;
-  --secondary-color: #3A3E4E;
-  --color: #FF7500;
-  --font-color: #FFFFFF; 
+  --secondary-color: #3a3e4e;
+  --color: #ff7500;
+  --font-color: #ffffff;
   font-family: 'Open Sans', sans-serif;
   outline: none;
 }
 
-header, main {
+header,
+main {
   padding-left: 300px;
 }
 
-@media only screen and (max-width : 992px) {
-  header, main, footer {
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
     padding-left: 0;
   }
 }
 
 .container {
   width: 95%;
-}
-
-body {
-  background: linear-gradient(145deg, #ffffff, #d6d6d6);
-  background-repeat: no-repeat;
 }
 
 /* Button */
@@ -36,19 +34,23 @@ body {
 }
 
 /* Navbar Brand CSS Start */
-nav{
+nav {
   padding-left: 1.8rem;
   padding-right: 1.8rem;
   height: 5rem;
   line-height: 5rem;
-  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
-  box-shadow: inset -2px -2px 4px var(--primary-color), 
-              inset 2px 2px 4px var(--secondary-color);
+  background: linear-gradient(
+    145deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  box-shadow: inset -2px -2px 4px var(--primary-color),
+    inset 2px 2px 4px var(--secondary-color);
 }
 
-nav .nav-wrapper .brand-logo{
+nav .nav-wrapper .brand-logo {
   color: var(--font-color);
-  font-weight: bolder;  
+  font-weight: bolder;
   font-size: 1.7rem;
   letter-spacing: 0.1rem;
 }
@@ -59,7 +61,7 @@ nav .nav-wrapper .brand-logo .stroke-text {
   -webkit-text-stroke-color: var(--font-color);
 }
 
-nav .nav-wrapper .brand-logo:hover{
+nav .nav-wrapper .brand-logo:hover {
   color: var(--color) !important;
 }
 
@@ -108,16 +110,15 @@ nav .nav-wrapper ul li a span.badge::before {
 }
 
 .dropdown-content {
-/* Dropdown  Effect Start */
-/* Dropdown */
+  /* Dropdown  Effect Start */
+  /* Dropdown */
   border: none;
   border-radius: 5px;
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
-  box-shadow: 2px 2px 4px #cacaca, 
-            -2px -2px 4px #ffffff;
+  box-shadow: 2px 2px 4px #cacaca, -2px -2px 4px #ffffff;
 }
 
-.dropdown-content a{
+.dropdown-content a {
   color: var(--primary-color) !important;
 }
 
@@ -135,8 +136,7 @@ nav .nav-wrapper ul li a span.badge::before {
   height: 30rem;
   /* padding: 1rem; */
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
-  box-shadow: 4px 4px 8px #cacaca, 
-            -4px -4px 8px #ffffff;
+  box-shadow: 4px 4px 8px #cacaca, -4px -4px 8px #ffffff;
 }
 
 .owl-carousel .item .col {
@@ -159,8 +159,7 @@ nav .nav-wrapper ul li a span.badge::before {
   border: none;
   border-radius: 10px;
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
-  box-shadow: 4px 4px 8px #cacaca, 
-            -4px -4px 8px #ffffff;
+  box-shadow: 4px 4px 8px #cacaca, -4px -4px 8px #ffffff;
 }
 
 .card .card-image {
@@ -172,7 +171,7 @@ nav .nav-wrapper ul li a span.badge::before {
   font-size: 1.5rem;
 }
 
-.card .card-content .card-desc { 
+.card .card-content .card-desc {
   font-size: 0.9rem;
   margin-bottom: 0.4rem;
   margin-top: -0.2rem;
@@ -186,7 +185,7 @@ nav .nav-wrapper ul li a span.badge::before {
 .card .price {
   color: var(--primary-color);
   font-size: 1.5rem;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .card .card-image .card-title {
@@ -199,7 +198,7 @@ nav .nav-wrapper ul li a span.badge::before {
 
 .card .card-image .card-title a {
   color: rgb(172, 172, 172);
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
 }
 
 .card .card-image .card-title a:hover {
@@ -255,40 +254,88 @@ nav .nav-wrapper ul li a span.badge::before {
 .FormCSS form button {
   padding: 0.5rem;
   margin: 0.5rem;
-  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1), inset 2px 2px 6px rgba(0, 0, 0, 0.8) ;
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
 /* Footer */
 .page-footer {
-  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
-  box-shadow: inset -2px -2px 4px var(--primary-color), 
-              inset 2px 2px 4px var(--secondary-color);
+  background: linear-gradient(
+    145deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  box-shadow: inset -2px -2px 4px var(--primary-color),
+    inset 2px 2px 4px var(--secondary-color);
 }
 
-input.invalid:not([type]), input.invalid:not([type]):focus, input.invalid[type=text]:not(.browser-default), input.invalid[type=text]:not(.browser-default):focus, input.invalid[type=password]:not(.browser-default), input.invalid[type=password]:not(.browser-default):focus, input.invalid[type=email]:not(.browser-default), input.invalid[type=email]:not(.browser-default):focus, input.invalid[type=url]:not(.browser-default), input.invalid[type=url]:not(.browser-default):focus, input.invalid[type=time]:not(.browser-default), input.invalid[type=time]:not(.browser-default):focus, input.invalid[type=date]:not(.browser-default), input.invalid[type=date]:not(.browser-default):focus, input.invalid[type=datetime]:not(.browser-default), input.invalid[type=datetime]:not(.browser-default):focus, input.invalid[type=datetime-local]:not(.browser-default), input.invalid[type=datetime-local]:not(.browser-default):focus, input.invalid[type=tel]:not(.browser-default), input.invalid[type=tel]:not(.browser-default):focus, input.invalid[type=number]:not(.browser-default), input.invalid[type=number]:not(.browser-default):focus, input.invalid[type=search]:not(.browser-default), input.invalid[type=search]:not(.browser-default):focus, textarea.materialize-textarea.invalid, textarea.materialize-textarea.invalid:focus, .select-wrapper.invalid>input.select-dropdown, .select-wrapper.invalid>input.select-dropdown:focus {
-    border-bottom: 1px solid var(--font-color);
-    border: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+input.invalid:not([type]),
+input.invalid:not([type]):focus,
+input.invalid[type='text']:not(.browser-default),
+input.invalid[type='text']:not(.browser-default):focus,
+input.invalid[type='password']:not(.browser-default),
+input.invalid[type='password']:not(.browser-default):focus,
+input.invalid[type='email']:not(.browser-default),
+input.invalid[type='email']:not(.browser-default):focus,
+input.invalid[type='url']:not(.browser-default),
+input.invalid[type='url']:not(.browser-default):focus,
+input.invalid[type='time']:not(.browser-default),
+input.invalid[type='time']:not(.browser-default):focus,
+input.invalid[type='date']:not(.browser-default),
+input.invalid[type='date']:not(.browser-default):focus,
+input.invalid[type='datetime']:not(.browser-default),
+input.invalid[type='datetime']:not(.browser-default):focus,
+input.invalid[type='datetime-local']:not(.browser-default),
+input.invalid[type='datetime-local']:not(.browser-default):focus,
+input.invalid[type='tel']:not(.browser-default),
+input.invalid[type='tel']:not(.browser-default):focus,
+input.invalid[type='number']:not(.browser-default),
+input.invalid[type='number']:not(.browser-default):focus,
+input.invalid[type='search']:not(.browser-default),
+input.invalid[type='search']:not(.browser-default):focus,
+textarea.materialize-textarea.invalid,
+textarea.materialize-textarea.invalid:focus,
+.select-wrapper.invalid > input.select-dropdown,
+.select-wrapper.invalid > input.select-dropdown:focus {
+  border-bottom: 1px solid var(--font-color);
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
-input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
-    background-color: var(--font-color);
-    border: none;
-    border-bottom: none;
-    border-radius: 5px;
-    outline: none;
-    height: 3rem;
-    width: 100%;
-    font-size: 1rem;
-    color: var(--primary-color);
-    margin: 0 0 1rem 0;
-    padding: 0 0 0 1rem;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+input:not([type]),
+input[type='text']:not(.browser-default),
+input[type='password']:not(.browser-default),
+input[type='email']:not(.browser-default),
+input[type='url']:not(.browser-default),
+input[type='time']:not(.browser-default),
+input[type='date']:not(.browser-default),
+input[type='datetime']:not(.browser-default),
+input[type='datetime-local']:not(.browser-default),
+input[type='tel']:not(.browser-default),
+input[type='number']:not(.browser-default),
+input[type='search']:not(.browser-default),
+textarea.materialize-textarea {
+  background-color: var(--font-color);
+  border: none;
+  border-bottom: none;
+  border-radius: 5px;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin: 0 0 1rem 0;
+  padding: 0 0 0 1rem;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -302,10 +349,10 @@ button, input, optgroup, select, textarea {
 }
 
 .btn-large {
-    height: 3rem;
-    line-height: 3rem;
-    font-size: 15px;
-    padding: 0 28px;
+  height: 3rem;
+  line-height: 3rem;
+  font-size: 15px;
+  padding: 0 28px;
 }
 
 .search .input-field {
@@ -320,9 +367,9 @@ input::placeholder {
   color: #999;
 }
 
-.footer-copyright .brand-logo{
+.footer-copyright .brand-logo {
   color: var(--font-color);
-  font-weight: bolder;  
+  font-weight: bolder;
   font-size: 1rem;
   letter-spacing: 0.1rem;
 }
@@ -344,28 +391,32 @@ input::placeholder {
 /* Admin | Seller */
 
 /* SignUp & SignIn */
-.signUp .col , .signIn .col {
+.signUp .col,
+.signIn .col {
   padding: 3rem;
 }
 
-.signUp .col .signUp-form , .signIn .col .signIn-form {
+.signUp .col .signUp-form,
+.signIn .col .signIn-form {
   padding: 0.01rem 0.8rem 1rem 0;
   border-radius: 10px;
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
-  box-shadow: 4px 4px 8px #cacaca, 
-            -4px -4px 8px #ffffff;
+  box-shadow: 4px 4px 8px #cacaca, -4px -4px 8px #ffffff;
 }
 
-.signUp .col .signUp-form h3 , .signIn .col .signIn-form h3 {
+.signUp .col .signUp-form h3,
+.signIn .col .signIn-form h3 {
   font-weight: 700;
   color: var(--primary-color);
 }
 
-.signUp .col .signUp-form .btn, .signIn .col .signIn-form .btn {
-  width: 100%; 
+.signUp .col .signUp-form .btn,
+.signIn .col .signIn-form .btn {
+  width: 100%;
 }
 
-.signUp .col .signUp-form .btn:hover, .signIn .col .signIn-form .btn:hover {
+.signUp .col .signUp-form .btn:hover,
+.signIn .col .signIn-form .btn:hover {
   background: var(--color);
   opacity: 0.8;
 }
@@ -396,9 +447,9 @@ input::placeholder {
 
   /* Card Styling */
   .card .card-image {
-  height: 20rem;
-  padding: 4rem;
-  text-align: center;
+    height: 20rem;
+    padding: 4rem;
+    text-align: center;
   }
 
   /* Page footer */
@@ -407,9 +458,8 @@ input::placeholder {
   }
 
   /* Admin | Seller */
- .signUp .col , .signIn .col {
-  padding: 2rem;
-  } 
+  .signUp .col,
+  .signIn .col {
+    padding: 2rem;
+  }
 }
-
-

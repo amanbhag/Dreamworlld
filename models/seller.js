@@ -9,8 +9,17 @@ const sellerSchema = new schema(
       required: true,
       maxlength: 3
     },
-    name: { type: String, required: true },
-    password: { type: String, required: true, default: 'admin@123' }
+    name: {
+      type: mongoose.Schema.Types.String,
+      match: /^[A-Za-z]+$/,
+      required: true
+    },
+    password: {
+      type: String,
+      required: true,
+      default: 'admin@123',
+      minlength: 6
+    }
   },
   {
     timestamps: true,

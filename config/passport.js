@@ -77,10 +77,6 @@ passport.use(
       passReqToCallback: true
     },
     (req, aid, password, done) => {
-      req
-        .checkBody('password', 'Invalid Password')
-        .notEmpty()
-        .isLength({ min: 6 });
       var errors = req.validationErrors();
       if (errors) {
         var messages = [];

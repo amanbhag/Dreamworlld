@@ -181,6 +181,21 @@ router.get('/add-to-cart/:_id', async (req, res, next) => {
   });
 });
 
+router.get('/buy-now-add-to-cart/:_id', async (req, res, next) => {
+  const productID = req.params._id;
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+  await Product.findById(productID, (err, product) => {
+    if (err) {
+      res.redirect('/');
+    }
+    cart.add(product, product._id, product.name);
+    req.session.cart = cart;
+    console.log(req.session.cart);
+    return res.redirect('/checkout');
+  });
+});
+
 router.get('/reduce/:id', (req, res, next) => {
   const productID = req.params.id;
   var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -267,15 +282,12 @@ router.post('/checkout', isLoggedIn, (req, res, next) => {
   );
 });
 
-var csrfProtection = csrf();
-router.use(csrfProtection);
-
 router.get('/adminSignup', async (req, res) => {
   var messages = req.flash('error');
+  console.log(messages);
   res.render('admin/signup', {
     adminSignInAndUp: true,
     title: 'Seller Panel Signup',
-    csrfToken: req.csrfToken(),
     hasError: messages.length > 0,
     messages: messages
   });
@@ -286,7 +298,6 @@ router.get('/admin', async (req, res) => {
   res.render('admin/signin', {
     adminSignInAndUp: true,
     title: 'Seller Panel Signin',
-    csrfToken: req.csrfToken(),
     hasError: messages.length > 0,
     messages: messages
   });
@@ -330,7 +341,7 @@ router.post(
 router.post(
   '/sellersignup',
   passport.authenticate('local-seller-signup', {
-    failureRedirect: '/admin',
+    failureRedirect: '/adminSignup',
     failureFlash: true
   }),
   async (req, res) => {
@@ -361,6 +372,17 @@ router.post(
     });
   }
 );
+
+// Route for individual Product View Page
+router.get('/products/:productID', async (req, res, next) => {
+  const productID = req.params.productID;
+  const product = await Product.findOne({ _id: productID });
+
+  res.render('shop/productView', {
+    title: product.name,
+    product: product
+  });
+});
 
 module.exports = router;
 

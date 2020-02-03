@@ -22,13 +22,13 @@
                     <form method="post" action="/sellersignup">
                         <div class="input-field col s12 center">
                             {{!-- ID --}}
-                            <input placeholder="Enter Admin ID..." type="text" name="aid" id="aid">
+                            <input required placeholder="Enter Admin ID..." type="text" name="aid" id="aid">
                             {{!-- Name --}}
-                            <input placeholder="Enter Admin Name..." type="text" name="name" id="name">
+                            <input required placeholder="Enter Admin Name..." type="text" name="name" id="name">
                             {{!-- Password --}}
-                            <input placeholder="Enter Password" type="password" name="password" id="password">
+                            <input required placeholder="Enter Password" type="password" name="password" id="password">
                             {{!-- csrfToken --}}
-                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            {{!-- <input type="hidden" name="_csrf" value="{{csrfToken}}"> --}}
                             {{!-- SignUp Button --}}
                             <button type="submit" class="btn btn-large center">Sign Up</button>
                         </div>
