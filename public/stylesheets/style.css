@@ -10,6 +10,10 @@
   outline: none;
 }
 
+.sidenav li > a {
+  color: white !important;
+}
+
 header,
 main {
   padding-left: 300px;

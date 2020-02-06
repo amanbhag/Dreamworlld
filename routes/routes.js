@@ -1,5 +1,6 @@
 var router = require('express').Router();
 var Product = require('../models/products');
+var Seller = require('../models/seller');
 var Cart = require('../models/cart');
 var Orders = require('../models/orders');
 const { APIKEY } = require('../config/stripe');
@@ -129,11 +130,11 @@ router.post('/adminDashboard', async (req, res, next) => {
 });
 
 router.get('/adminDashboard', async (req, res, next) => {
+  const adminLogin = true;
   const allProducts = await Product.find();
   const allOrders = await Orders.find();
   const sizeOfAllOrders = allOrders.length;
   const sizeOfAllProducts = allProducts.length;
-  const seller = true;
   if (sizeOfAllProducts > 0) {
     result = true;
   } else {
@@ -151,7 +152,8 @@ router.get('/adminDashboard', async (req, res, next) => {
     allProducts,
     allOrders,
     result,
-    resultOrder
+    resultOrder,
+    adminLogin
   });
 });
 
@@ -310,31 +312,7 @@ router.post(
     failureFlash: true
   }),
   async (req, res) => {
-    const adminLogin = true;
-    const allProducts = await Product.find();
-    const allOrders = await Orders.find();
-    const sizeOfAllOrders = allOrders.length;
-    const sizeOfAllProducts = allProducts.length;
-    if (sizeOfAllProducts > 0) {
-      result = true;
-    } else {
-      result = false;
-    }
-
-    if (sizeOfAllOrders > 0) {
-      resultOrder = true;
-    } else {
-      resultOrder = false;
-    }
-
-    return res.render('admin', {
-      title: 'Seller Panel',
-      allProducts,
-      allOrders,
-      result,
-      resultOrder,
-      adminLogin
-    });
+    return res.redirect('/adminDashboard');
   }
 );
 
@@ -345,31 +323,7 @@ router.post(
     failureFlash: true
   }),
   async (req, res) => {
-    const adminLogin = true;
-    const allProducts = await Product.find();
-    const allOrders = await Orders.find();
-    const sizeOfAllOrders = allOrders.length;
-    const sizeOfAllProducts = allProducts.length;
-    if (sizeOfAllProducts > 0) {
-      result = true;
-    } else {
-      result = false;
-    }
-
-    if (sizeOfAllOrders > 0) {
-      resultOrder = true;
-    } else {
-      resultOrder = false;
-    }
-
-    return res.render('admin', {
-      title: 'Seller Panel',
-      allProducts,
-      allOrders,
-      result,
-      resultOrder,
-      adminLogin
-    });
+    return res.redirect('/adminDashboard');
   }
 );
 
