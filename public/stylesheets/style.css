@@ -10,6 +10,14 @@
   outline: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(145deg, #ffffff, #d6d6d6);
+}
+
 header,
 main {
   padding-left: 300px;
@@ -31,6 +39,11 @@ main {
 .btn {
   background: var(--color);
   border-radius: 5px;
+}
+
+.btn:hover {
+  background: var(--color);
+  opacity: 0.8;
 }
 
 /* Navbar Brand CSS Start */
@@ -135,8 +148,8 @@ nav .nav-wrapper ul li a span.badge::before {
 .owl-carousel .item {
   height: 30rem;
   /* padding: 1rem; */
-  background: linear-gradient(145deg, #ffffff, #d6d6d6);
-  box-shadow: 4px 4px 8px #cacaca, -4px -4px 8px #ffffff;
+  background: linear-gradient(145deg, #ffffff, #d6d6d6) !important;
+  box-shadow: 6px 6px 12px #cacaca, -6px -6px 12px #ffffff !important;
 }
 
 .owl-carousel .item .col {
@@ -206,7 +219,7 @@ nav .nav-wrapper ul li a span.badge::before {
 }
 
 /* Delete Product Table */
-.ProductTable {
+/* .ProductTable {
   border: 0.1rem solid black;
 }
 .ProductTable td {
@@ -215,14 +228,7 @@ nav .nav-wrapper ul li a span.badge::before {
 }
 .ProductTable thead td {
   font-weight: 600 !important;
-}
-
-/* For Changing Nav-pill bg color */
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #673ab7;
-}
+} */
 
 /* Link Text decoration None */
 .textNone {
@@ -297,7 +303,7 @@ textarea.materialize-textarea.invalid,
 textarea.materialize-textarea.invalid:focus,
 .select-wrapper.invalid > input.select-dropdown,
 .select-wrapper.invalid > input.select-dropdown:focus {
-  border-bottom: 1px solid var(--font-color);
+  border-bottom: 1px solid transparent;
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -388,7 +394,7 @@ input::placeholder {
   -webkit-text-stroke-color: var(--color);
 }
 
-/* Admin | Seller */
+/* Admin | Seller - OR - Customer | User */
 
 /* SignUp & SignIn */
 .signUp .col,
@@ -410,9 +416,13 @@ input::placeholder {
   color: var(--primary-color);
 }
 
+.signIn .col .signIn-form .forgot-password {
+  margin-bottom: 1rem;
+} 
+
 .signUp .col .signUp-form .btn,
 .signIn .col .signIn-form .btn {
-  width: 100%;
+  width: 103.5%;
 }
 
 .signUp .col .signUp-form .btn:hover,
@@ -424,6 +434,25 @@ input::placeholder {
 .sidenav-fixed .user-view {
   background: var(--color);
 }
+
+.sidenav-fixed .user-view a h4 {
+  font-weight: 700;
+  position: relative;
+  top: -2rem;
+}
+
+.sidenav-fixed li a {
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.sidenav-fixed li a:hover {
+  color: var(--color);
+  background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+}
+
+
+
 
 /* *_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_ */
 
