@@ -16,6 +16,12 @@ html {
 
 body {
   background: linear-gradient(145deg, #ffffff, #d6d6d6);
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+.sidenav li a {
+  color: white !important;
 }
 
 header,
